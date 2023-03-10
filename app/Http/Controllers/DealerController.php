@@ -95,6 +95,7 @@ class DealerController extends Controller
 
 
    $dealer = Dealer::create($validatedData);
+   
 
     // send email to dealer
     // \Mail::to($dealer->email)->send(new DealerRegistered($dealer));
