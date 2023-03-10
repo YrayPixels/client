@@ -78,7 +78,7 @@
                                 @enderror
                             </div>
 
-                             <div class="fv-row mb-7">
+                           <!--   <div class="fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6">{{ __('User Type') }}</label>
                                   <select id="is_admin" type="is_admin" class="form-control form-control-lg form-control-solid @error('is_admin') is-invalid @enderror" name="is_admin" required autocomplete="is_admin">
                                     <option>select...</option>
@@ -94,7 +94,7 @@
 
 
                         </div>
-                            
+                             -->
 
 
 
