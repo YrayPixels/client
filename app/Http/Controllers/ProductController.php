@@ -11,7 +11,7 @@ use DB;
 
 class ProductController extends Controller
 {
-          public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -55,14 +55,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $user=Dealer::findOrFail($id);
-        $order=Order::where('user_id',$id)->count();
-        $active=1;
+        $user = Dealer::findOrFail($id);
+        $order = Order::where('user_id', $id)->count();
+        $active = 1;
         $products = DB::table('parts')->select('*')->simplePaginate(10);
-        return view('dist.apps.customers.buyitems', compact('products','user','order'));
-
-
-
+        return view('dist.apps.customers.buyitems', compact('products', 'user', 'order'));
     }
 
     /**
