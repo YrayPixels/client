@@ -61,7 +61,7 @@ Route::get('/de_activate/{user_code}', [App\Http\Controllers\DealerController::c
 Route::get('/overv/{user_code}', [App\Http\Controllers\DealerController::class, 'show'])->name('overv');
 Route::post('/dstore', [App\Http\Controllers\DealerController::class, 'store']);
 // retrieving data not on pendding
-Route::get('/dealers', [App\Http\Controllers\Dealer Controller::class, 'index'])->name('admin.home');
+Route::get('/dealers', [App\Http\Controllers\DealerController::class, 'index'])->name('admin.home');
 // storing data for Dealer
 Route::post('/cstore', [App\Http\Controllers\CorporateController::class, 'store']);
     // retrieving data not on pendding
@@ -81,3 +81,8 @@ Route::post('/update_client/{id}', [StockController::class, 'update_client'])->n
 Route::post('/update_coperate_client/{id}', [StockController::class, 'update_coperate_client'])->name('update_coperate_client');
 Route::post('/update_coperate_client2/{id}', [StockController::class, 'update_coperate_client2'])->name('update_coperate_client2');
 Route::get('/view_client_details/{id}', [StockController::class, 'view_client_details'])->name('view_client_details');
+
+
+Route::get('/email', function () {
+    return view('mail.email.orderEmail');
+});

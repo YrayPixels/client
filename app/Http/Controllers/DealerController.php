@@ -26,10 +26,8 @@ class DealerController extends Controller
 
     public function sales()
     {
-
         $active = 1;
         $dealers = DB::table('clients')->select('*')->latest()->simplePaginate(10);
-
         // $dealers = DB::table('dealers', 'corporates')->select('*', 'corporates.*')->where('active', $active)->latest()->simplePaginate(10);
         return view('dist.apps.customers.sales', compact('dealers'));
     }
@@ -37,7 +35,6 @@ class DealerController extends Controller
 
     public function index()
     {
-
         $active = 3;
         $dealers = DB::table('clients')->select('*')->latest()->simplePaginate(10);
         return view('dist.apps.customers.customerlist', compact('dealers'));
@@ -53,12 +50,8 @@ class DealerController extends Controller
     //     Dealer::create($request->all());
     //     return redirect()->route('dealers.index')->with('success', 'Dealer created successfully.');
     // }
-
-
-
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'user_type' => 'required',
             'user_code' => 'required',

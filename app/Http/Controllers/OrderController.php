@@ -13,7 +13,7 @@ use DB;
 
 class OrderController extends Controller
 {
-          public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -49,13 +49,12 @@ class OrderController extends Controller
         //
 
 
-        $data= new Order();
-        $data->user_id=$request->user_id;
-        $data->product_id=$request->product_id;
-        $data->product_price=$request->product_price;
+        $data = new Order();
+        $data->user_id = $request->user_id;
+        $data->product_id = $request->product_id;
+        $data->product_price = $request->product_price;
         $data->save();
         return redirect()->back()->with('success', 'Item added successfully.');
-
     }
 
     /**
@@ -64,23 +63,20 @@ class OrderController extends Controller
      * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-   public function show($id)
+    public function show($id)
     {
-        
-     $t=0;
-        $dealer=Dealer::findOrFail($id);
-        $data=DB::table('dealers')
-     ->join('orders','dealers.id','orders.user_id')
-     ->join('parts','orders.product_id','parts.id')
-     ->select('dealers.*','parts.name','parts.*')->where('dealers.id',$id)     
-     ->get();
 
-     $sumTotal=DB::table('orders')->where('user_id',$id)->sum('product_price');
+        $t = 0;
+        $dealer = Dealer::findOrFail($id);
+        $data = DB::table('dealers')
+            ->join('dealer_orders', 'dealers.id', 'dealer_orders.user_id')
+            ->join('parts', 'dealer_orders.product_id', 'parts.id')
+            ->select('dealers.*', 'parts.name', 'parts.*')->where('dealers.id', $id)
+            ->get();
 
-        return view('dist.apps.invoices.view.invoice',compact('data','dealer','sumTotal'));
+        $sumTotal = DB::table('dealer_orders')->where('user_id', $id)->sum('product_price');
 
-
-
+        return view('dist.apps.invoices.view.invoice', compact('data', 'dealer', 'sumTotal'));
     }
     /**
      * Show the form for editing the specified resource.

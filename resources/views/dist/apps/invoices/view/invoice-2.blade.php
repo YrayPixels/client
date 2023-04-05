@@ -31,7 +31,7 @@
 
                                 <div class="text-sm-end fw-bold fs-4 text-muted mt-7">
                                     <div>NAME : {{ $dealer->first_name }} {{ $dealer->last_name }}</div>
-                                    <div>ID : {{ $dealer->user_code }}</div>
+                                    <div>ID : {{ $dealer->code }}</div>
                                 </div>
                                 <!--end::Text-->
 
@@ -76,43 +76,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!--end::Table-->
-                                    <!--begin::Section-->
-                                    {{-- <div class="d-flex flex-column mw-md-300px w-100">
-                                        <!--begin::Label-->
-                                        <div class="fw-bold fs-5 mb-3 text-dark00">BANK TRANSFER</div>
-                                        <!--end::Label-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex flex-stack text-gray-800 mb-3 fs-6">
-                                            <!--begin::Accountname-->
-                                            <div class="fw-bold pe-5">Account Name:</div>
-                                            <!--end::Accountname-->
-                                            <!--begin::Label-->
-                                            <div class="text-end fw-norma">Barclays UK</div>
-                                            <!--end::Label-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex flex-stack text-gray-800 mb-3 fs-6">
-                                            <!--begin::Accountnumber-->
-                                            <div class="fw-bold pe-5">Account Number:</div>
-                                            <!--end::Accountnumber-->
-                                            <!--begin::Number-->
-                                            <div class="text-end fw-norma">1234567890934</div>
-                                            <!--end::Number-->
-                                        </div>
-                                        <!--end::Item-->
-                                        <!--begin::Item-->
-                                        <div class="d-flex flex-stack text-gray-800 fs-6">
-                                            <!--begin::Code-->
-                                            <div class="fw-bold pe-5">Code:</div>
-                                            <!--end::Code-->
-                                            <!--begin::Label-->
-                                            <div class="text-end fw-norma">BARC0032UK</div>
-                                            <!--end::Label-->
-                                        </div>
 
-                                    </div> --}}
                                     <div class="d-flex flex-column mw-md-300px w-100">
                                         <h5>Account Details</h5>
                                         <div class="d-flex text-start">
@@ -162,8 +126,9 @@
                                     <div class="border-bottom w-100 my-7 my-lg-16"></div>
                                     <!--begin::Invoice To-->
                                     <div class="text-gray-600 fs-6 fw-bold mb-3">INVOICE TO.</div>
-                                    <div class="fs-6 text-gray-800 fw-bold mb-8">Iris Watson.
-                                        <br />Fredrick Nebraska 20620
+                                    <div class="fs-6 text-gray-800 fw-bold mb-8">
+                                        {{ $dealer->first_name . ' ' . $dealer->last_name }}
+                                        <br />
                                     </div>
                                     <!--end::Invoice To-->
                                     <!--begin::Invoice No-->

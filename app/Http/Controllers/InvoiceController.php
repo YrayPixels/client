@@ -83,14 +83,16 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        $dealer = Dealer::findOrFail($id);
+        // dd($id);
+        $dealer = Dealer::where('id', $id)->first();
+        // dd($dealer);
         $data = DB::table('dealers')
             ->join('dealer_orders', 'dealers.id', 'dealer_orders.user_id')
             ->join('parts', 'dealer_orders.product_id', 'parts.id')
             ->select('dealers.*', 'parts.name', 'parts.*')->where('dealers.id', $id)
             ->get();
         $sumTotal = DB::table('dealer_orders')->where('user_id', $id)->sum('product_price');
-        $suminvoice = Invoice::findOrFail($id);
+        $suminvoice = Invoice::where('user_id', $id)->first();
         // $suminvoice=DB::table('invoices')->select('*')->where('user_id',$id);
         return view('dist.apps.invoices.view.invoice-2', compact('data', 'dealer', 'sumTotal', 'suminvoice'));
     }

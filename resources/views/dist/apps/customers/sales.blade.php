@@ -162,7 +162,6 @@
                 <form action="{{ url('/dstore') }}" class="form" enctype="multipart/form-data"
                     id="kt_modal_add_customer_form" method="Post">
                     @csrf
-
                     <!--begin::Modal header-->
                     <div class="modal-header" id="kt_modal_add_customer_header">
                         <!--begin::Modal title-->
@@ -277,9 +276,9 @@
                                 <!--end::Col-->
                             </div>
                             <!-- <center>
-                                                <button class="btn btn-primary" data-bs-dismiss="modal" id="kt_modal_select_location_button" type="button">Save process
-                                                </button>
-                                               </center> -->
+                                                    <button class="btn btn-primary" data-bs-dismiss="modal" id="kt_modal_select_location_button" type="button">Save process
+                                                    </button>
+                                                   </center> -->
                             <!--end::Input group-->
                             <!--begin::Input group-->
 
@@ -528,9 +527,9 @@
                             </div>
 
                             <!-- 	<center>
-                                                <button class="btn btn-primary" data-bs-dismiss="modal" id="kt_modal_select_location_button" type="button">Save process
-                                                </button>
-                                               </center> -->
+                                                    <button class="btn btn-primary" data-bs-dismiss="modal" id="kt_modal_select_location_button" type="button">Save process
+                                                    </button>
+                                                   </center> -->
 
                             <!--end::Input group-->
                             <!--begin::Billing toggle-->
